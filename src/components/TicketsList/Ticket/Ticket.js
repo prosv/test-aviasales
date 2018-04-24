@@ -1,14 +1,14 @@
 import React from 'react';
 
 import {recountPrice} from '../../../utils/exchangeRates';
-// import styles from './Ticket.css';
+import styles from './Ticket.css';
 
 const Ticket = ({
                     ticket,
                     currency
                 }) => {
     return (
-        <article className="ticket">
+        <article className={styles.ticket}>
             <section className="ticket-buy_section">
                 <figure className="ticket-company_logo">
                     <img src="" alt="Company logo"/>
