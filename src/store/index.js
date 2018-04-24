@@ -11,7 +11,7 @@ const initialState = {
         3: false,
         4: false
     },
-    currency: 'rub'
+    checkedCurrency: 'rub'
 };
 
 const store = createStore(
@@ -19,7 +19,5 @@ const store = createStore(
     initialState,
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
-
-// Exchange Rates
 
 export default store;

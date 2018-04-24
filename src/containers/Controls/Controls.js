@@ -3,41 +3,20 @@ import { connect } from 'react-redux';
 
 import StopsFilter from '../../components/StopsFilter/StopsFilter';
 import Currency from '../../components/Currency/Currency';
-import { updateFilters } from '../../actions/index';
+import {
+    updateFilters,
+    updateCurrency
+} from '../../actions/index';
+import {availableCurrencies} from '../../utils/exchangeRates';
+import {filters} from '../../utils/filters';
 
 class Controls extends React.Component {
     constructor(props) {
         super(props);
 
-        this.filters = [
-            {
-                label: 'Все',
-                id: 0
-            },
-            {
-                label: 'Без пересадок',
-                id: 1
-            },
-            {
-                label: '1 пересадка',
-                id: 2
-            },
-            {
-                label: '2 пересадки',
-                id: 3
-            },
-            {
-                label: '3 пересадки',
-                id: 4
-            }
-        ];
-
         this.handleFilterClick = this.handleFilterClick.bind(this);
+        this.handleCurrencyClick = this.handleCurrencyClick.bind(this);
     }
-
-    componentDidMount() {
-    }
-
 
     handleFilterClick(event, id, only) {
         let filters = {...this.props.state.checkedFilters};
@@ -47,6 +26,7 @@ class Controls extends React.Component {
         else {
             if (id && !only) {
                 filters[id] = true;
+                filters[0] ? filters[0] = false : null;
             }
             else {
                 for (let key in filters) {
@@ -57,16 +37,22 @@ class Controls extends React.Component {
         this.props.dispatch(updateFilters(filters))
     }
 
+    handleCurrencyClick(currency) {
+        this.props.dispatch(updateCurrency(currency));
+    }
+
     render() {
         return (
             <section className="controls">
                 <StopsFilter
-                    filters={this.filters}
+                    filters={filters}
                     checkedFilters={this.props.state.checkedFilters}
                     changeFilters={this.handleFilterClick}
                 />
                 <Currency
-                    currency={this.props.state.currency}
+                    currencies={availableCurrencies}
+                    checkedCurrency={this.props.state.checkedCurrency}
+                    handleCurrencyClick={this.handleCurrencyClick}
                 />
             </section>
         );

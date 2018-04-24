@@ -3,7 +3,7 @@ export const reducer = (state = {}, action) => {
         case 'UPDATE_CURRENCY': {
             return {
                 ...state,
-                currency: action.currency
+                checkedCurrency: action.checkedCurrency
             };
         }
         case 'UPDATE_FILTERS': {

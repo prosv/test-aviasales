@@ -1,9 +1,11 @@
 import React from 'react';
 
+import {recountPrice} from '../../../utils/exchangeRates';
 // import styles from './Ticket.css';
 
 const Ticket = ({
-                    ticket
+                    ticket,
+                    currency
                 }) => {
     return (
         <article className="ticket">
@@ -15,7 +17,7 @@ const Ticket = ({
 
                 <button className="ticket-buy_button">
                     <span>Купить</span>
-                    <span>за {ticket.price}</span>
+                    <span>за {recountPrice(ticket.price, currency)}</span>
                 </button>
             </section>
 

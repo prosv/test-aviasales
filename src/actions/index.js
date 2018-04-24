@@ -1,6 +1,6 @@
-export const updateCurrency = (currency) => ({
+export const updateCurrency = (checkedCurrency) => ({
     type: 'UPDATE_CURRENCY',
-    currency: currency
+    checkedCurrency: checkedCurrency
 });
 
 export const updateFilters = (checkedFilters) => ({

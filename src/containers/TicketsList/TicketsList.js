@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import TicketsListComponent from '../../components/TicketsList/TicketsList';
+import {sort} from '../../utils/sort';
 
 class TicketsList extends React.Component {
     constructor(props) {
@@ -14,19 +15,11 @@ class TicketsList extends React.Component {
         };
 
         this.loadData = this.loadData.bind(this);
-        this.sortByPrice = this.sortByPrice.bind(this);
         this.filterVisible = this.filterVisible.bind(this);
     }
 
     componentDidMount() {
         this.loadData();
-    }
-
-    sortByPrice(data) {
-        return data.sort(
-            (a, b) => {
-                return a.price - b.price;
-            });
     }
 
     loadData() {
@@ -45,7 +38,7 @@ class TicketsList extends React.Component {
                 ({tickets}) => {
                     this.setState({
                         loading: false,
-                        tickets: this.sortByPrice(tickets)
+                        tickets: sort(tickets, 'price')
                     });
 
                 }
@@ -75,6 +68,7 @@ class TicketsList extends React.Component {
         return (
             <TicketsListComponent
                 tickets={this.filterVisible(this.state.tickets)}
+                currency={this.props.state.checkedCurrency}
             />
         );
     }
