@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from './Ticket.css';
+// import styles from './Ticket.css';
 
 const Ticket = ({
                     ticket
