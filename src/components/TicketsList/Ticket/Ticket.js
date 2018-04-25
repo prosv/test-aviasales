@@ -33,7 +33,7 @@ const Ticket = ({
                     </span>
                     <div className={styles.path}>
                     <span className={styles.stops}>
-                        {stops[ticket.stops + 1].label}
+                        {ticket.stops ? stops[ticket.stops + 1].label : ''}
                     </span>
                         <div className={styles.line}>
                         </div>
