@@ -1,6 +1,10 @@
 import React from 'react';
-import { recountPrice } from '../../../utils/exchangeRates';
+import { recountPrice } from '../../../utils/currencies';
 import { stops } from '../../../utils/stops';
+import {
+    formatDate,
+    formatTime
+} from '../../../utils/date';
 import styles from './Ticket.css';
 import airlane from '../../../images/airplane.svg';
 
@@ -25,7 +29,7 @@ const Ticket = ({
             <section className={styles.description}>
                 <div className={styles.firstLine}>
                     <span className={styles.time}>
-                        {ticket.departure_time}
+                        {formatTime(ticket.departure_time)}
                     </span>
                     <div className={styles.path}>
                     <span className={styles.stops}>
@@ -40,7 +44,7 @@ const Ticket = ({
                         />
                     </div>
                     <span className={styles.time}>
-                        {ticket.arrival_time}
+                        {formatTime(ticket.arrival_time)}
                     </span>
                 </div>
                 <div className={styles.secondLine}>
@@ -49,7 +53,7 @@ const Ticket = ({
                             {ticket.origin}, {ticket.origin_name}
                         </span>
                         <span className={styles.date}>
-                            {ticket.departure_date}
+                            {formatDate(ticket.departure_date)}
                         </span>
                     </div>
                     <div className={styles.destination}>
@@ -57,7 +61,7 @@ const Ticket = ({
                             {ticket.destination_name}, {ticket.destination}
                         </span>
                         <span className={styles.date}>
-                            {ticket.arrival_date}
+                            {formatDate(ticket.arrival_date)}
                         </span>
                     </div>
                 </div>

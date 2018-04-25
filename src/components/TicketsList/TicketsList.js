@@ -1,14 +1,19 @@
 import React from 'react';
 import Ticket from './Ticket/Ticket';
+import Loading from './Loading/Loading';
 import styles from './TicketsList.css'
 
 const TicketsList = ({
                          tickets,
-                         currency
+                         currency,
+                         loading
                      }) => {
     return (
         <section className={styles.section}>
-            {tickets.map((ticket, i) => <Ticket key={i} ticket={ticket} currency={currency}/>)}
+            {!loading
+                ? tickets.map((ticket, i) => <Ticket key={i} ticket={ticket} currency={currency}/>)
+                : <Loading />
+            }
         </section>
     )
 };

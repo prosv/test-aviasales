@@ -5,8 +5,8 @@ import {
     updateFilters,
     updateCurrency
 } from '../../actions/index';
-import {availableCurrencies} from '../../utils/exchangeRates';
-import {stops} from '../../utils/stops';
+import { availableCurrencies } from '../../utils/currencies';
+import { stops } from '../../utils/stops';
 
 class Controls extends React.Component {
     constructor(props) {
@@ -14,21 +14,34 @@ class Controls extends React.Component {
 
         this.handleFilterClick = this.handleFilterClick.bind(this);
         this.handleCurrencyClick = this.handleCurrencyClick.bind(this);
+        this.isAllFiltersChecked = this.isAllFiltersChecked.bind(this);
+    }
+
+    isAllFiltersChecked(filters) {
+        for (let key in filters) {
+            if (key !== '0' && !filters[key]) {
+                return false;
+            }
+        }
+        return true
     }
 
     handleFilterClick(event, id, only) {
         let filters = {...this.props.state.checkedFilters};
-        if (!event.target.checked && !only) {
-            filters[id] = false;
+        if(id === 0) {
+            filters[0] = event.target.checked;
+            for (let key in filters) {
+                filters[key] = filters[0];
+            }
         }
         else {
-            if (id && !only) {
-                filters[id] = true;
-                filters[0] ? filters[0] = false : null;
+            if (!only) {
+                filters[id] = event.target.checked;
+                filters[0] = this.isAllFiltersChecked(filters);
             }
             else {
                 for (let key in filters) {
-                    filters[key] = key == id;
+                    filters[key] = id ? Number(key) === id : true;
                 }
             }
         }

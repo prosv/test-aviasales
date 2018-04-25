@@ -1,0 +1,14 @@
+:root{
+    --border-radius: 5px;
+    --first-font-color: #4A4A4A;
+    --second-font-color: #8B9497;
+    --blue: #2196F3;
+    --gray: #D2D5D6;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f3f7fa;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+}

@@ -6,10 +6,10 @@ const rootReducer = reducer;
 const initialState = {
     checkedFilters: {
         0: true,
-        1: false,
-        2: false,
-        3: false,
-        4: false
+        1: true,
+        2: true,
+        3: true,
+        4: true
     },
     checkedCurrency: 'rub'
 };

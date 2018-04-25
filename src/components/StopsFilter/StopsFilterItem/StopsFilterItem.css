@@ -1,11 +1,17 @@
+@import '../../../global.css';
+
 .item {
     cursor: pointer;
     user-select: none;
     font-size: 13px;
-    color: #4A4A4A;
-    line-height: 35px;
+    color: var(--first-font-color);
+    line-height: 36px;
     position: relative;
     padding: 0 15px;
+}
+
+.item:hover {
+    background-color: #F1FCFF;
 }
 
 .input {
@@ -23,14 +29,14 @@
     height: 19px;
     width: 19px;
     background: #FFFFFF;
-    border: 1px solid #D2D5D6;
+    border: 1px solid var(--gray);
     border-radius: 3px;
     margin-right: 10px;
 }
 
 .input:checked + .checkmark {
     background: #F2FCFF;
-    border: 1px solid #2196F3;
+    border: 1px solid var(--blue);
 }
 
 .checkmark:after {
@@ -66,19 +72,19 @@
     text-transform: uppercase;
     font-size: 11px;
     font-weight: 600;
-    color: #2196F3;
+    color: var(--blue);
     margin-right: 15px;
     letter-spacing: 0.5px;
-    line-height: 35px;
+    line-height: 36px;
     transform: translateY(25px);
     transition: opacity .15s ease, transform .15s ease-out;
+}
+
+.only:focus {
+    outline: none;
 }
 
 .item:hover .only {
     opacity: 1;
     transform: translateY(0);
-}
-
-.item:hover {
-    background-color: #F1FCFF;
 }

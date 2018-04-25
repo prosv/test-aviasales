@@ -1,13 +1,9 @@
-@import '../../variables.css';
-
-.section {
-
-}
+@import '../../global.css';
 
 .header {
     font-weight: 600;
     font-size: 12px;
-    color: #4A4A4A;
+    color: var(--first-font-color);
     letter-spacing: 0.5px;
     line-height: 19px;
     text-transform: uppercase;
@@ -24,16 +20,17 @@
 }
 
 .tab {
-    padding: 9px 21px;
+    padding: 8px 20px;
     font-weight: 600;
     font-size: 12px;
-    color: #2196F3;
+    color: var(--blue);
     letter-spacing: 0.5px;
     line-height: 22px;
     text-transform: uppercase;
     background: #FFFFFF;
-    box-shadow: 0 0 0 1px #D2D5D6;
+    box-shadow: 0 0 0 1px var(--gray);
     cursor: pointer;
+    width: 66px;
 }
 
 .tab:first-child {
@@ -51,8 +48,8 @@
 }
 
 .tabActive {
-    background: #2196F3;
+    background: var(--blue);
     color: #FFFFFF;
-    box-shadow: 0 0 0 1px #2196F3;
+    box-shadow: 0 0 0 1px var(--blue);
     z-index: 3;
 }

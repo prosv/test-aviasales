@@ -1,8 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
 import TicketsListComponent from '../../components/TicketsList/TicketsList';
-import {sort} from '../../utils/sort';
+import { sort } from '../../utils/sort';
 
 class TicketsList extends React.Component {
     constructor(props) {
@@ -69,6 +68,7 @@ class TicketsList extends React.Component {
             <TicketsListComponent
                 tickets={this.filterVisible(this.state.tickets)}
                 currency={this.props.state.checkedCurrency}
+                loading={this.state.loading}
             />
         );
     }
@@ -78,12 +78,7 @@ const mapStateToProps = (state) => {
     return {state};
 };
 
-const mapDispatchToProps = (dispatch) => {
-    return {dispatch};
-};
-
 export default connect(
-    mapStateToProps,
-    mapDispatchToProps
+    mapStateToProps
 )(TicketsList);
 

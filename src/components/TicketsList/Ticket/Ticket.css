@@ -1,4 +1,4 @@
-@import '../../../variables.css';
+@import '../../../global.css';
 
 .ticket {
     margin-bottom: 20px;
@@ -15,6 +15,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 160px;
+}
+
+.logo {
+    height: 35px;
 }
 
 .button {
@@ -23,7 +28,7 @@
     box-shadow: 0 1px 0 0 #D64D08, 0 2px 1px 0 rgba(0, 0, 0, 0.10);
     border-radius: var(--border-radius);
     border: none;
-    padding: 6px 38px;
+    padding: 6px 35px;
     transition: background .3s, box-shadow .3s;
     width: 160px;
 }
@@ -31,6 +36,10 @@
 .button:hover {
     background: #FF8124;
     box-shadow: 0 1px 0 0 #F7661D, 0 1px 5px 0 rgba(0, 0, 0, 0.25);
+}
+
+.button:focus {
+    outline: none;
 }
 
 .buttonText {
@@ -76,7 +85,7 @@
 .time {
     display: inline-block;
     font-size: 32px;
-    color: #4A4A4A;
+    color: var(--first-font-color);
     letter-spacing: 0;
     line-height: 26px;
 }
@@ -85,14 +94,14 @@
     display: block;
     font-weight: 600;
     font-size: 12px;
-    color: #4A4A4A;
+    color: var(--first-font-color);
     line-height: 18px;
 }
 
 .date {
     display: block;
     font-size: 12px;
-    color: #8B9497;
+    color: var(--second-font-color);;
     line-height: 18px;
 }
 
@@ -105,7 +114,7 @@
 .stops {
     font-weight: 600;
     font-size: 10px;
-    color: #8B9497;
+    color: var(--second-font-color);;
     text-align: center;
     line-height: 12px;
     text-transform: uppercase;
@@ -119,7 +128,7 @@
     top: 20px;
     left: 20px;
     right: 35px;
-    background: #D2D5D6;
+    background: var(--gray);
 }
 
 .airplane {

@@ -1,13 +1,15 @@
+@import '../../global.css';
+
 .filter {
     display: flex;
     flex-direction: column;
-    padding-bottom: 15px;
+    padding-bottom: 14px;
 }
 
 .header {
     font-weight: 600;
     font-size: 12px;
-    color: #4A4A4A;
+    color: var(--first-font-color);
     letter-spacing: 0.5px;
     line-height: 19px;
     text-transform: uppercase;
