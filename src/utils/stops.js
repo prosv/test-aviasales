@@ -1,4 +1,4 @@
-export const filters = [
+export const stops = [
     {
         label: 'Все',
         id: 0

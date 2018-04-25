@@ -1,7 +1,8 @@
 import React from 'react';
-
-import {recountPrice} from '../../../utils/exchangeRates';
+import { recountPrice } from '../../../utils/exchangeRates';
+import { stops } from '../../../utils/stops';
 import styles from './Ticket.css';
+import airlane from '../../../images/airplane.svg';
 
 const Ticket = ({
                     ticket,
@@ -9,36 +10,55 @@ const Ticket = ({
                 }) => {
     return (
         <article className={styles.ticket}>
-            <section className="ticket-buy_section">
-                <figure className="ticket-company_logo">
-                    <img src="" alt="Company logo"/>
+            <section className={styles.buy}>
+                <figure className={styles.logo}>
+                    <img src={'//pics.avs.io/120/35/' + ticket.carrier + '.png'} alt="Airlines logo"/>
                     <figcaption></figcaption>
                 </figure>
 
-                <button className="ticket-buy_button">
-                    <span>Купить</span>
-                    <span>за {recountPrice(ticket.price, currency)}</span>
+                <button className={styles.button}>
+                    <span className={styles.buttonText}>Купить</span>
+                    <span className={styles.buttonText}>за {recountPrice(ticket.price, currency)}</span>
                 </button>
             </section>
 
-            <section className="ticket-description_section">
-                <div className="ticket-origin">
-                    <span>{ticket.departure_time}</span>
-                    <span>{ticket.origin}, {ticket.origin_name}</span>
-                    <span>{ticket.destination_name}, {ticket.destination}</span>
-                </div>
-
-                <div className="ticket-path">
-                    <span className="ticket-path-stops">
-                        {ticket.stops}
+            <section className={styles.description}>
+                <div className={styles.firstLine}>
+                    <span className={styles.time}>
+                        {ticket.departure_time}
                     </span>
-                    <div className="ticket-path-line">
+                    <div className={styles.path}>
+                    <span className={styles.stops}>
+                        {stops[ticket.stops + 1].label}
+                    </span>
+                        <div className={styles.line}>
+                        </div>
+                        <img
+                            src={airlane}
+                            className={styles.airplane}
+                            alt="Airplane pic"
+                        />
                     </div>
-
-                    <div className="ticket-destination">
-                        <span>{ticket.arrival_time}</span>
-                        <span>{ticket.departure_date}</span>
-                        <span>{ticket.arrival_date}</span>
+                    <span className={styles.time}>
+                        {ticket.arrival_time}
+                    </span>
+                </div>
+                <div className={styles.secondLine}>
+                    <div className={styles.origin}>
+                        <span className={styles.city}>
+                            {ticket.origin}, {ticket.origin_name}
+                        </span>
+                        <span className={styles.date}>
+                            {ticket.departure_date}
+                        </span>
+                    </div>
+                    <div className={styles.destination}>
+                        <span className={styles.city}>
+                            {ticket.destination_name}, {ticket.destination}
+                        </span>
+                        <span className={styles.date}>
+                            {ticket.arrival_date}
+                        </span>
                     </div>
                 </div>
             </section>

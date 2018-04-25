@@ -6,7 +6,7 @@ import {
     updateCurrency
 } from '../../actions/index';
 import {availableCurrencies} from '../../utils/exchangeRates';
-import {filters} from '../../utils/filters';
+import {stops} from '../../utils/stops';
 
 class Controls extends React.Component {
     constructor(props) {
@@ -43,7 +43,7 @@ class Controls extends React.Component {
         return (
             <ControlsComponent
                 availableCurrencies={availableCurrencies}
-                filters={filters}
+                filters={stops}
                 checkedFilters={this.props.state.checkedFilters}
                 changeFilters={this.handleFilterClick}
                 checkedCurrency={this.props.state.checkedCurrency}
