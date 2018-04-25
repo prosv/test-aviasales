@@ -1,0 +1,16 @@
+.filter {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 15px;
+}
+
+.header {
+    font-family: OpenSans-SemiBold;
+    font-size: 12px;
+    color: #4A4A4A;
+    letter-spacing: 0.5px;
+    line-height: 19px;
+    text-transform: uppercase;
+    margin: 0;
+    padding: 15px 15px 7px 15px;
+}

@@ -1,18 +1,10 @@
 import React from 'react';
-
-import Header from '../components/Header/Header';
-import Controls from '../containers/Controls/Controls';
-import TicketsList from '../containers/TicketsList/TicketsList';
+import Layout from '../components/Layout';
 
 class App extends React.Component {
     render() {
-        return ([
-                <Header />,
-                <main>
-                    <Controls />
-                    <TicketsList />
-                </main>
-            ]
+        return (
+            <Layout />
         );
     }
 }

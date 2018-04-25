@@ -1,0 +1,12 @@
+.header {
+    height: 160px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo {
+    border-radius: 30px;
+    box-shadow: 0 1px 11px 0 rgba(55, 104, 142, 0.3), 0 8px 11px 0 rgba(55, 104, 142, 0.25);
+}

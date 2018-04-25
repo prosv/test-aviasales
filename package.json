@@ -92,5 +92,9 @@
   },
   "eslintConfig": {
     "extends": "react-app"
+  },
+  "devDependencies": {
+    "postcss-cssnext": "^3.1.0",
+    "postcss-import": "^11.1.0"
   }
 }

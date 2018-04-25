@@ -1,13 +1,14 @@
 import React from 'react';
-
 import StopsFilterItem from './StopsFilterItem/StopsFilterItem';
+import styles from './StopsFilter.css';
 
 const StopsFilter = ({
                          filters,
                          checkedFilters,
                          changeFilters
                      }) => (
-    <section>
+    <section className={styles.filter}>
+        <h2 className={styles.header}>Количество пересадок</h2>
         {filters.map((filter, i) =>
             <StopsFilterItem
                 id={filter.id}

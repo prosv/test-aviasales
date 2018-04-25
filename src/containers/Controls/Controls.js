@@ -1,8 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
-import StopsFilter from '../../components/StopsFilter/StopsFilter';
-import Currency from '../../components/Currency/Currency';
+import ControlsComponent from '../../components/Controls/Controls';
 import {
     updateFilters,
     updateCurrency
@@ -43,18 +41,14 @@ class Controls extends React.Component {
 
     render() {
         return (
-            <section className="controls">
-                <StopsFilter
-                    filters={filters}
-                    checkedFilters={this.props.state.checkedFilters}
-                    changeFilters={this.handleFilterClick}
-                />
-                <Currency
-                    currencies={availableCurrencies}
-                    checkedCurrency={this.props.state.checkedCurrency}
-                    handleCurrencyClick={this.handleCurrencyClick}
-                />
-            </section>
+            <ControlsComponent
+                availableCurrencies={availableCurrencies}
+                filters={filters}
+                checkedFilters={this.props.state.checkedFilters}
+                changeFilters={this.handleFilterClick}
+                checkedCurrency={this.props.state.checkedCurrency}
+                handleCurrencyClick={this.handleCurrencyClick}
+            />
         );
     }
 }
