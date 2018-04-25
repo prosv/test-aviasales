@@ -27,7 +27,7 @@ class TicketsList extends React.Component {
             error: null
         });
 
-        fetch(`/tickets.json`)
+        fetch(process.env.PUBLIC_URL + `/tickets.json`)
             .then(
                 (response) => {
                     return response.json();
